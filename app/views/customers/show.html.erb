@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Userid:</strong>
+  <%= @customer.userid %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @customer.password_digest %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @customer.password %>
+</p>
+
+<p>
+  <strong>Password confirm:</strong>
+  <%= @customer.password_confirm %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
