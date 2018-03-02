@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reports/all'
+
+  get 'reports/sales'
+
   resources :customers
   resources :purchases
   resources :users
