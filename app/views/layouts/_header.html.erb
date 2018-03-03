@@ -5,19 +5,27 @@
     </div>
   </center>
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-sm-6">
       <%= link_to "Home", root_path %>
       <%= link_to "Shop", store_shop_path %>
       <%= link_to "About", welcome_about_path %>
       <%= link_to "Contact", welcome_contact_path %>
       <%= link_to "Help", welcome_help_path %>
+      <%= link_to "Register", new_customer_path %>
     </div>
+
     <div class="col-sm-4">
+      <form class="form-inline">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success btn-sm" type="submit">Search</button>
+      </form>
+    </div>
+
+    <div class="col-sm-2">
       <% if session[:customer_id].nil? %>
-        <%= link_to "Register", new_customer_path %>
         <%= button_to 'Login', login_path, :method => :get, :class => 'btn btn-primary' %>
       <% else %>
-        Hello <%= Customer.find(session[:customer_id]).last_name %> !
+        Hello <%= Customer.find(session[:customer_id]).username %> !
         <%= button_to 'Logout', logout_path, :method => :delete %>
       <% end %>
     </div>

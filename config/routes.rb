@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   # Store frontendn
   get 'store/shop'
 
+  get 'reports/all'
+  get 'reports/feedback'
+  get 'reports/sales'
+
   # Misc static pages
   get 'welcome/about'
   get 'welcome/contact'

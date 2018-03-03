@@ -1,2 +1,16 @@
-<h1>Reports#all</h1>
-<p>Find me in app/views/reports/all.html.erb</p>
+<div class="container">
+  <h1>Admin Dashboard</h1>
+  <p>Manage resources, edit customers and other operations</p>
+  <p id="notice"><%= notice %></p>
+
+  <br />
+
+  <h3>Reports</h3>
+  <p>
+  --> <%= link_to 'Feedback Report', reports_feedback_path %>
+  </p>
+  <p>
+  --> <%= link_to 'Sales Report', reports_sales_path %>
+  </p>
+
+</div>
