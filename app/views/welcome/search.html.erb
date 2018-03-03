@@ -1,0 +1,35 @@
+<h1>Search </h1>
+
+<%= form_tag :action => 'search' do %>
+
+	<p>Provide search criteria:<br>
+		<%= text_field_tag 'searchinput', @searchinput %> </p>
+		
+		<%= submit_tag 'Search' %>
+<% end %>
+<hr/>
+<% if @results == true %>
+	<% if @courselist.length >0 %>
+		<p> Here are the search results:</p>
+		
+		<table>
+			<tr>
+				<th>Course Name</th>
+				<th>Image</th>
+				<th>Description</th>
+			</tr>
+			<% @courselist.each do |c| %>
+				<tr>
+				<td><%= link_to c.coursename, course_path(c.id) %></td>
+				<td><%= image_tag c.courseimage, size:"50x50" %></td>
+				<td><%= c.description %></td>
+				</tr>
+			<% end %>
+		</table>
+		
+	<% else%>
+		<p>There were no courses or topics with your search criteria. Try again!</p>
+	<% end %>
+<% end %>
+
+		

@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
+  resources :feedbacks
+  resources :customers
+  resources :products
+  # Reporting
   get 'reports/all'
-
   get 'reports/sales'
 
-  resources :customers
-  resources :purchases
-  resources :users
-  resources :products
-  get 'sessions/new'
-
+  post '/customers' => 'customers#create'
+  # Auth'ed backend
   get 'admin/dashboard'
+
+  # Store frontendn
   get 'store/shop'
+
+  # Misc static pages
   get 'welcome/about'
   get 'welcome/contact'
   get 'welcome/help'
   get 'welcome/privacy'
-  get    '/login',   to: 'sessions#new'
+  # Sessionn handling
+  get    '/login',   to: 'sessions#new', as: 'login'
   post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  delete '/logout',  to: 'sessions#destroy', as: 'logout'
+  get '/signup' => 'customers#new'
   root :to => 'welcome#index'
 end
