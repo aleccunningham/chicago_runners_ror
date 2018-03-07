@@ -1,3 +1,5 @@
 class Product < ApplicationRecord
-  has_and_belongs_to_many :customers
+  # Each product could have one or
+  # more reviews, dependent on the product
+  has_many :feedback, dependent: :destory
 end

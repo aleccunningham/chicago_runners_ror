@@ -11,8 +11,8 @@ class StoreController < ApplicationController
     @qty = params[:qty].to_i;
 
     # Set session cart arrays to nil.
-    session[:cart_prod] << @prodid
-    session[:cart_qty] << @qty
+    session[:cart_products] << @prodid
+    session[:cart_count] << @qty
 
     # Redirect to display cart (shopping cart)
     redirect_to cart_url
@@ -20,23 +20,23 @@ class StoreController < ApplicationController
 
   def updatecart
    	# Get the specific item that needs to be removed
-  	cartid = params[:cartid].to_i;
+  	cart_id = params[:cart_id].to_i;
 
-  	 # Remove the specific element that is desired to be removed from the array.
-  	session[:cart_prod].delete_at(cartid)
-  	session[:cart_qty].delete_at(cartid)
+  	# Remove the specific element that is desired to be removed from the array.
+  	session[:cart_products].delete_at(cartid)
+  	session[:cart_count].delete_at(cartid)
 
-    	# Redirect to display cart (shopping cart)
+    # Redirect to display cart (shopping cart)
   	redirect_to cart_url
   end
 
   def checkout
-    cartlen = session[:cart_prod].length
+    cartlen = session[:cart_products].length
     i=0
     if cartlen > 0
      # Save new record in Order table
      # Student ID, Sale Date and Sale Notes
-     orderid = Order.create(student_id: session[:customer_id], orderdate: Date.today, ordernotes:session[:cart_prod].to_s)
+     orderid = Order.create(customer_id: session[:customer_id], orderdate: Date.today, ordernotes:session[:cart_products].to_s)
 
       # For each item in the shopping cart save the record in the in OrderItem table
       while i < cartlen
@@ -44,8 +44,8 @@ class StoreController < ApplicationController
         i = i + 1
       end
     # Set session cart arrays to nil.
-      session[:cart_prod] = Array.new
-      session[:cart_qty] = Array.new
+      session[:cart_products] = Array.new
+      session[:cart_count] = Array.new
     end
   end
 

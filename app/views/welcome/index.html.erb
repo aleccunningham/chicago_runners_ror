@@ -2,5 +2,19 @@
 
 <center><p>Get some gear and run!</p>
 
+  <table> <tr>
+  	<td width="85%"> SHOWCASE COURSES </td>
+
+  	<td width="15%">
+
+  		<% @promotions.each do |p| %>
+  			<hr>
+  			<p> <%= p.title  %></br>
+  				<%= p.description %></br>
+  				<%= image_tag p.imagepath, size:"100x100" %><p>
+  		<% end %>
+  	</td>
+  </tr></table>
+
 
 <br />

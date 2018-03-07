@@ -1,6 +1,8 @@
 class Customer < ApplicationRecord
-  has_and_belongs_to_many :products
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :username, presence:true, uniqueness:true
   has_secure_password
 
-  validates :username, presence:true, uniqueness:true 
+  # Each customer could have one or more carts
+  has_many :cart, dependent: :destroy
 end
