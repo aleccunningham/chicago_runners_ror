@@ -4,32 +4,30 @@
 
 	<p>Provide search criteria:<br>
 		<%= text_field_tag 'searchinput', @searchinput %> </p>
-		
+
 		<%= submit_tag 'Search' %>
 <% end %>
 <hr/>
 <% if @results == true %>
-	<% if @courselist.length >0 %>
+	<% if @productlist.length >0 %>
 		<p> Here are the search results:</p>
-		
+
 		<table>
 			<tr>
-				<th>Course Name</th>
-				<th>Image</th>
+				<th>Product Name</th>
+				<th>Price</th>
 				<th>Description</th>
 			</tr>
-			<% @courselist.each do |c| %>
+			<% @product.each do |p| %>
 				<tr>
-				<td><%= link_to c.coursename, course_path(c.id) %></td>
-				<td><%= image_tag c.courseimage, size:"50x50" %></td>
-				<td><%= c.description %></td>
+				<td><%= link_to p.name, product_path(p.id) %></td>
+				<td><%= p.price %></td>
+				<td><%= p.description %></td>
 				</tr>
 			<% end %>
 		</table>
-		
+
 	<% else%>
-		<p>There were no courses or topics with your search criteria. Try again!</p>
+		<p>There were no products with your search criteria. Try again!</p>
 	<% end %>
 <% end %>
-
-		

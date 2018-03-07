@@ -16,4 +16,11 @@
 
   def contact
   end
+
+  def search
+    @results = 0
+    @searchinput = params[:searchinput]
+    @searchcriteria = "%#{params[:searchinput]}%"
+    @productlist = Product.where("description like ?", @searchcriteria)
+  end
 end
