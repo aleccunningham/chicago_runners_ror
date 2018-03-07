@@ -7,11 +7,11 @@
 
   	<td width="15%">
 
-  		<% @promotions.each do |p| %>
+  		<% @promotions.each do |promotion| %>
   			<hr>
-  			<p> <%= p.title  %></br>
-  				<%= p.description %></br>
-  				<%= image_tag p.imagepath, size:"100x100" %><p>
+  			<p> <%= promotion.title  %></br>
+  				<%= promotion.description %></br>
+  				<%= image_tag promotion.imagepath, size:"128x128" %><p>
   		<% end %>
   	</td>
   </tr></table>

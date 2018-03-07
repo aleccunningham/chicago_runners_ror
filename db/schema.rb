@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180307034644) do
+ActiveRecord::Schema.define(version: 0) do
 
   create_table "cart_items", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20180307034644) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string "userid"
     t.string "password_digest"
     t.string "password"
     t.string "password_confirm"
@@ -40,18 +39,6 @@ ActiveRecord::Schema.define(version: 20180307034644) do
     t.string "email"
   end
 
-  create_table "customers_products", id: false, force: :cascade do |t|
-    t.integer "customer_id", null: false
-    t.integer "product_id", null: false
-  end
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.string "email"
-    t.string "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -64,9 +51,10 @@ ActiveRecord::Schema.define(version: 20180307034644) do
   create_table "promotions", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "imagePath"
-    t.date "startDate"
-    t.date "endDate"
+    t.string "desturl"
+    t.string "imagepath"
+    t.date "startdate"
+    t.date "enddate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

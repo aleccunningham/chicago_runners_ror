@@ -2,6 +2,7 @@
   skip_before_action :authorize
 
   def index
+    @promotions = Promotion.all # where("startdate <= ? AND enddate >= ?",  Date.today, Date.today)
   end
 
   def help
