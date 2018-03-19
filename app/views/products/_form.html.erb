@@ -1,3 +1,36 @@
+<script src="../_js/jquery-1.7.2.min.js"></script>
+<script>
+$(document).ready(function() {
+outtoConfirm = function()
+{
+$('body').css('background-color','#804000');
+
+$('h1').after('<center> <h2> Check all data. Make changes if necessary. Then hit the <b>"Submit"</b> button </h2></center>');
+var titlein, authorin, pricein;
+titlein = $('#book_title').val();
+authorin = $('#book_author').val();
+pricein= $('#product_price').val();
+
+$('#product_name').css('background-color', 'yellow');
+$('#product_category').css('background-color', 'yellow');
+$('#product_description').css('background-color', 'yellow');
+$('#product_price').css('background-color', 'yellow');
+$('#product_price').val(pricein);
+$('#product_price').after('<p><input name="submitButton" type="submit" id="submission" value="Submit Confirmed Data" length = 20> </p>');
+$('#confirmButton').remove();
+$('#submission').hover(function()
+{
+$(this).css('background-color', 'tan')
+
+
+}); //end
+}
+$('#confirmButton').click(outtoConfirm);
+}); //end ready
+</script>
+
+</script>
+
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
@@ -31,7 +64,5 @@
     <%= form.text_field :description, id: :product_description %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <input name="submitButton" type="submit" id="confirmButton" value="Submit Data" length = 20> </p>
 <% end %>

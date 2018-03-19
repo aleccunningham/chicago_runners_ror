@@ -6,13 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-alec = Customer.create email: 'alec@gmail.com', username: 'aleccunningham', password: 'justtestit', country: 'US', state: 'IL', city: 'Chicago', first_name: 'Alec', last_name: 'Cunningham'
-tom = Customer.create email: 'tom@gmail.com', username: 'tomsmith', password: 'justtestit', country: 'US', state: 'IL', city: 'Chicago', first_name: 'Tom', last_name: 'Smit'
-griffin = Customer.create email: 'griffin@gmail.com', username: 'griffinroberts', password: 'justtestit', country: 'US', state: 'PH', city: 'Pittsburg', first_name: 'Griffin', last_name: 'Roberts'
-freddy = Customer.create email: 'freddy@gmail.com', username: 'freddylucas', password: 'justtestit', country: 'US', state: 'IL', city: 'Chicago', first_name: 'Freddy', last_name: 'Lucas'
-duke = Customer.create email: 'duke@gmail.com', username: 'dukeofearl', password: 'justtestit', country: 'US', state: 'IL', city: 'Chicago', first_name: 'Duke', last_name: 'Earl'
+Customer.create(email: 'alec@gmail.com', username: 'aleccunningham', password: 'justtestit', country: 'US', state: 'IL', city: 'Chicago', first_name: 'Alec', last_name: 'Cunningham'
+Customer.create(email: 'tom@gmail.com', username: 'tomsmith', password: 'justtestit', country: 'US', state: 'IL', city: 'Chicago', first_name: 'Tom', last_name: 'Smit'
+Customer.create(email: 'griffin@gmail.com', username: "griffinroberts", password: "justtestit", country: "US", state: "PH", city: "Pittsburg", first_name: "Griffin", last_name: "Roberts"
+Customer.create(email: "freddy@gmail.com", username: "freddylucas", password: "justtestit", country: "US", state: "IL", city: "Chicago", first_name: "Freddy", last_name: "Lucas"
+Customer.create(email: "duke@gmail.com", username: "dukeofearl", password: "justtestit", country: "US", state: "IL", city: "Chicago", first_name: "Duke", last_name: "Earl")
 
-halfoff = Promotion.create title: "50% Off All Shoes", description: "Yup!", imagepath: "shoe1.jpg"
-buy1get1 = Promotion.create title: "Buy 1 Get 1 Half Off!", description: "Yup!", imagepath: "shoe2.jpg"
-newpromo = Promotion.create title: "New prices!", description: "Yup!", imagepath: "shoe3.jpeg"
-couples = Promotion.create title: "Couples Deal", description: "Yup!", imagepath: "shoe4.jpg"
+Product.create(name: "Nike Free", price: "100.0", category: "shoes", description: "Newest release from Nike")
+Product.create(name: "Nike Free", price: "80.0", category: "shoes", description: "Newest release from Nike")
+Product.create(name: "Nike Free", price: "85.0", category: "shoes", description: "Newest release from Nike")
+Product.create(name: "Nike Free", price: "80.0", category: "shoes", description: "Newest release from Nike")
+Product.create(name: "Runnning Shirt", price: "25.0", category: "clothes", description: "Newest release from Nike")
+Product.create(name: "Winter Running Tights", price: "50.0", category: "clothes", description: "Newest release from Nike")
+Product.create(name: "Biking Hat", price: "10.0", category: "clothes", description: "Newest release from Nike")
+
+Promotion.create(title: "Promotion 1", description: "Promotion 1 Desc", imagepath: "shoe1.jpg", startdate: "2015-04-01", enddate: "2015-04-30")
+Promotion.create(title: "Promotion 2", description: "Promotion 2 Desc", imagepath: "shoe2.jpgg", startdate: "2015-05-01", enddate: "2015-05-31")
+Promotion.create(title: "Promotion 3", description: "Promotion 3 Desc", imagepath: "shoe3.jpg", startdate: "2015-05-01", enddate: "2015-05-31")
+Promotion.create(title: "Promotion 4", description: "Promotion 4 Desc", imagepath: "shoe4.jpg", startdate: "2015-06-01", enddate: "2015-07-31")
+Promotion.create(title: "Promotion 5", description: "Promotion 5 Desc", imagepath: "shoe5.jpg", startdate: "2015-04-01", enddate: "2015-04-30")
